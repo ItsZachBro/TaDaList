@@ -1,0 +1,193 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+label {
+  font: inherit;
+}
+
+:root {
+  --hue: 245;
+  --size: 1.8rem;
+  --radius: 0.2em;
+  --tspeed_fast: 180ms;
+  --tspeed_slow: 300ms;
+  --ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
+
+  /* Custom Colors */
+  --bg-custom: #cfd3d7;
+  --txt-custom: #374f3f;
+  --accent-custom: #2b3758;
+  --secondary-bg-custom: #C0CFDE;
+  --secondary-txt-custom: #192e25;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  justify-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg-custom);
+  color: var(--txt-custom);
+}
+
+h1{
+  color: #2b3758;
+}
+
+::selection {
+  background: var(--accent-custom);
+  color: var(--bg-custom);
+}
+
+.container {
+  margin: 4vmax max(calc((100vw - 70rem) / 2), 1.5rem) 6em;
+  display: grid;
+  gap: clamp(2rem, 3.5vmax, 8rem);
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  height: 0.4em;
+  background-color: var(--accent-custom);
+  border-radius: var(--radius);
+}
+
+.btn {
+  max-width: fit-content;
+  display: flex;
+  place-items: center;
+  gap: 0.5em;
+  background-color: var(--accent-custom);
+  color: var(--bg-custom);
+  text-decoration: none;
+  padding: 0.5em;
+  border-radius: var(--radius);
+  box-shadow: 0.05em 0.1em 0.9em var(--accent-custom),
+    0 0 0 -0.1em var(--bg-custom), 0 0 0 -0.2em var(--accent-custom);
+  transition: box-shadow var(--tspeed_fast) var(--ttype_squish),
+    background-color var(--tspeed_fast) var(--ttype_squish);
+}
+
+.btn :where(svg, img, span) {
+  pointer-events: none;
+}
+
+.btn :where(svg, img) {
+  width: var(--size);
+  height: var(--size);
+}
+
+.btn:where(:active, :hover) {
+  background-color: var(--secondary-bg-custom);
+  box-shadow: 0 0 0 var(--accent-custom), 0 0 0 -0.1em var(--bg-custom),
+    0 0 0 -0.2em var(--accent-custom);
+    color: #182e3d;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 var(--accent-custom), 0 0 0 0.2em var(--bg-custom),
+    0 0 0 0.4em var(--secondary-txt-custom);
+}
+
+.todo {
+  display: flex;
+  gap: 0.5em;
+  font-size: var(--size);
+  text-align: left;
+}
+
+.wrapper {
+  flex: 1 1 100%;
+  position: relative;
+  display: grid;
+  gap: 0.2em;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+  margin-inline: 0.45em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.1em 0.35em;
+  background-color: var(--secondary-bg-custom);
+  transition: transform var(--tspeed_fast) var(--ttype_squish),
+    background-color var(--tspeed_fast) var(--ttype_squish);
+}
+
+.input {
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.35em 0.55em;
+  width: 100%;
+  background-color: var(--secondary-bg-custom);
+  caret-color: var(--accent-custom);
+  box-shadow: 0 0 0 -0.1em var(--bg-custom), 0 0 0 -0.2em var(--accent-custom);
+  transition: box-shadow var(--tspeed_fast) var(--ttype_squish);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2em var(--bg-custom), 0 0 0 0.4em var(--accent-custom);
+}
+
+.input:focus~.label,
+.input:not(:placeholder-shown)~.label {
+  transform: translate3d(0, -3em, 0);
+  background-color: var(--bg-custom);
+  color: var(--accent-custom);
+}
+
+.input::placeholder {
+  opacity: 0;
+}
+
+[role="dialog"] {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  padding-inline: 2vmax;
+  display: grid;
+  place-items: center;
+  background-color: var(--bg-custom);
+}
+
+[role="dialog"] .todo {
+  max-width: 40ch;
+  padding: 2em 1.3em 1.3em;
+  background-color: var(--bg-custom);
+  border-radius: var(--radius);
+  border: 0.1em solid var(--accent-custom);
+  box-shadow: 0 -1em 3em var(--secondary-bg-custom), 0 1em 3em var(--accent-custom);
+}
+
+#root > div > ul > li > div:nth-child(2) > button.btn._delete_17y5j_159{
+  background-color: #693329;
+}
+
+body {
+  background-image: url(/paper-753508_1280.jpg);
+  background-position: center;
+  background-size: cover;
+}
